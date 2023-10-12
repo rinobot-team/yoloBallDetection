@@ -1,0 +1,6 @@
+<!-- in qiproject.xml -->
+<project version="3">
+  <qibuild name="darknet">
+    <depends runtime="true" buildtime="true" names="libnaoqi" />
+  </qibuild>
+</project>

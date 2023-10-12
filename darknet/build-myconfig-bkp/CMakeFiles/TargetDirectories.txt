@@ -1,0 +1,9 @@
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/dark.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/uselib.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/darknet.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/edit_cache.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/rebuild_cache.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/list_install_components.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/install.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/install/local.dir
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/install/strip.dir

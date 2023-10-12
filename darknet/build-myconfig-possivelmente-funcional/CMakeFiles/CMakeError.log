@@ -1,0 +1,292 @@
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_cd859/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_cd859.dir/build.make CMakeFiles/cmTC_cd859.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_cd859.dir/src.c.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc -DCMAKE_HAVE_LIBC_PTHREAD  -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning  -o CMakeFiles/cmTC_cd859.dir/src.c.o -c /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_cd859
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_cd859.dir/link.txt --verbose=1
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc  -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning  -Wl,--as-needed,--sysroot,/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/  CMakeFiles/cmTC_cd859.dir/src.c.o -o cmTC_cd859 
+CMakeFiles/cmTC_cd859.dir/src.c.o: In function `main':
+src.c:(.text+0x2f): undefined reference to `pthread_create'
+src.c:(.text+0x3e): undefined reference to `pthread_detach'
+src.c:(.text+0x4d): undefined reference to `pthread_cancel'
+src.c:(.text+0x5e): undefined reference to `pthread_join'
+src.c:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_cd859.dir/build.make:99: cmTC_cd859] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_cd859/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_19538/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_19538.dir/build.make CMakeFiles/cmTC_19538.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_19538.dir/CheckFunctionExists.c.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc   -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_19538.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_19538
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_19538.dir/link.txt --verbose=1
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc  -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,--as-needed,--sysroot,/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/  CMakeFiles/cmTC_19538.dir/CheckFunctionExists.c.o -o cmTC_19538  -lpthreads 
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/real-ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_19538.dir/build.make:99: cmTC_19538] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_19538/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_5ff09/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_5ff09.dir/build.make CMakeFiles/cmTC_5ff09.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_5ff09.dir/OpenMPTryFlag.c.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc   -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -fopenmp -v -o CMakeFiles/cmTC_5ff09.dir/OpenMPTryFlag.c.o -c /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Using built-in specs.
+COLLECT_GCC=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc
+Target: i686-sbr-linux
+Configured with: ../../../../../../work-shared/gcc-5.3.0-r0/gcc-5.3.0/configure --build=x86_64-linux --host=x86_64-naoqisdk-linux --target=i686-sbr-linux --prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --exec_prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --bindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --sbindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --libexecdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux --datadir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share --sysconfdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/etc --sharedstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/com --localstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/var --libdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux --includedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --oldincludedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --infodir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/info --mandir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=i686-sbr-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.3.0 --with-build-time-tools=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-linux/usr/i686-sbr-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/ald-atom --enable-targets=all --enable-poison-system-directories --with-mpfr=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-mpc=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --disable-static --enable-nls --enable-__cxa_atexit
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='--sysroot=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/' '-D' 'I_AM_A_ROBOT' '-pipe' '-D' 'I_AM_A_ROBOT' '-pipe' '-fomit-frame-pointer' '-finline-functions-called-once' '-finline-small-functions' '-falign-functions' '-falign-labels' '-falign-loops' '-falign-jumps' '-freorder-blocks' '-freorder-blocks-and-partition' '-freorder-functions' '-faggressive-loop-optimizations' '-ftree-vectorize' '-fpredictive-commoning' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_5ff09.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=pentiumpro' '-pthread'
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/cc1 -quiet -v -isysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -D_REENTRANT -D I_AM_A_ROBOT -D I_AM_A_ROBOT /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.c -quiet -dumpbase OpenMPTryFlag.c -mtune=generic -march=pentiumpro -auxbase-strip CMakeFiles/cmTC_5ff09.dir/OpenMPTryFlag.c.o -version -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -fopenmp -o - |
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/as -v --32 -o CMakeFiles/cmTC_5ff09.dir/OpenMPTryFlag.c.o
+GNU assembler version 2.26.0 (i686-sbr-linux) using BFD version (GNU Binutils) 2.26.0.20160226
+GNU C11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/lib/gcc/i686-sbr-linux/5.3.0/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/local/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/../../../../../i686-sbr-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include-fixed
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include
+End of search list.
+GNU C11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: ef27c9c905055da68007c994d2591395
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:17: fatal error: omp.h: No such file or directory
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_5ff09.dir/build.make:78: CMakeFiles/cmTC_5ff09.dir/OpenMPTryFlag.c.o] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_5ff09/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_c5f73/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_c5f73.dir/build.make CMakeFiles/cmTC_c5f73.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_c5f73.dir/OpenMPTryFlag.cpp.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-g++   -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -std=gnu++11 -fPIC -fopenmp -v -o CMakeFiles/cmTC_c5f73.dir/OpenMPTryFlag.cpp.o -c /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Using built-in specs.
+COLLECT_GCC=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-g++
+Target: i686-sbr-linux
+Configured with: ../../../../../../work-shared/gcc-5.3.0-r0/gcc-5.3.0/configure --build=x86_64-linux --host=x86_64-naoqisdk-linux --target=i686-sbr-linux --prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --exec_prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --bindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --sbindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --libexecdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux --datadir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share --sysconfdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/etc --sharedstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/com --localstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/var --libdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux --includedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --oldincludedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --infodir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/info --mandir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=i686-sbr-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.3.0 --with-build-time-tools=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-linux/usr/i686-sbr-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/ald-atom --enable-targets=all --enable-poison-system-directories --with-mpfr=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-mpc=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --disable-static --enable-nls --enable-__cxa_atexit
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='--sysroot=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/' '-D' 'I_AM_A_ROBOT' '-pipe' '-D' 'I_AM_A_ROBOT' '-pipe' '-fomit-frame-pointer' '-finline-functions-called-once' '-finline-small-functions' '-falign-functions' '-falign-labels' '-falign-loops' '-falign-jumps' '-freorder-blocks' '-freorder-blocks-and-partition' '-freorder-functions' '-faggressive-loop-optimizations' '-ftree-vectorize' '-fpredictive-commoning' '-std=gnu++11' '-fPIC' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_c5f73.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-pthread'
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/cc1plus -quiet -v -isysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -D_GNU_SOURCE -D_REENTRANT -D I_AM_A_ROBOT -D I_AM_A_ROBOT /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp -quiet -dumpbase OpenMPTryFlag.cpp -mtune=generic -march=pentiumpro -auxbase-strip CMakeFiles/cmTC_c5f73.dir/OpenMPTryFlag.cpp.o -std=gnu++11 -version -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -fPIC -fopenmp -o - |
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/as -v --32 -o CMakeFiles/cmTC_c5f73.dir/OpenMPTryFlag.cpp.o
+GNU assembler version 2.26.0 (i686-sbr-linux) using BFD version (GNU Binutils) 2.26.0.20160226
+GNU C++11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/lib/gcc/i686-sbr-linux/5.3.0/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/local/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/../../../../../i686-sbr-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include/c++/5.3.0
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include/c++/5.3.0/i686-sbr-linux
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include/c++/5.3.0/backward
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include-fixed
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include
+End of search list.
+GNU C++11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 58599425a9e498a9b2189cf21c7d4ae6
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:17: fatal error: omp.h: No such file or directory
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_c5f73.dir/build.make:78: CMakeFiles/cmTC_c5f73.dir/OpenMPTryFlag.cpp.o] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_c5f73/fast] Error 2
+
+
+
+Performing C SOURCE FILE Test CMAKE_HAVE_LIBC_PTHREAD failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_fc575/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_fc575.dir/build.make CMakeFiles/cmTC_fc575.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_fc575.dir/src.c.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc -DCMAKE_HAVE_LIBC_PTHREAD  -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning  -o CMakeFiles/cmTC_fc575.dir/src.c.o -c /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp/src.c
+Linking C executable cmTC_fc575
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_fc575.dir/link.txt --verbose=1
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc  -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning  -Wl,--as-needed,--sysroot,/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/  CMakeFiles/cmTC_fc575.dir/src.c.o -o cmTC_fc575 
+CMakeFiles/cmTC_fc575.dir/src.c.o: In function `main':
+src.c:(.text+0x2f): undefined reference to `pthread_create'
+src.c:(.text+0x3e): undefined reference to `pthread_detach'
+src.c:(.text+0x4d): undefined reference to `pthread_cancel'
+src.c:(.text+0x5e): undefined reference to `pthread_join'
+src.c:(.text+0x6f): undefined reference to `pthread_atfork'
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_fc575.dir/build.make:99: cmTC_fc575] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_fc575/fast] Error 2
+
+
+Source file was:
+#include <pthread.h>
+
+static void* test_func(void* data)
+{
+  return data;
+}
+
+int main(void)
+{
+  pthread_t thread;
+  pthread_create(&thread, NULL, test_func, NULL);
+  pthread_detach(thread);
+  pthread_cancel(thread);
+  pthread_join(thread, NULL);
+  pthread_atfork(NULL, NULL, NULL);
+  pthread_exit(NULL);
+
+  return 0;
+}
+
+Determining if the function pthread_create exists in the pthreads failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_27697/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_27697.dir/build.make CMakeFiles/cmTC_27697.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_27697.dir/CheckFunctionExists.c.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc   -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DCHECK_FUNCTION_EXISTS=pthread_create -o CMakeFiles/cmTC_27697.dir/CheckFunctionExists.c.o -c /usr/share/cmake-3.22/Modules/CheckFunctionExists.c
+Linking C executable cmTC_27697
+/usr/bin/cmake -E cmake_link_script CMakeFiles/cmTC_27697.dir/link.txt --verbose=1
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc  -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DCHECK_FUNCTION_EXISTS=pthread_create -Wl,--as-needed,--sysroot,/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/  CMakeFiles/cmTC_27697.dir/CheckFunctionExists.c.o -o cmTC_27697  -lpthreads 
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/real-ld: cannot find -lpthreads
+collect2: error: ld returned 1 exit status
+gmake[1]: *** [CMakeFiles/cmTC_27697.dir/build.make:99: cmTC_27697] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_27697/fast] Error 2
+
+
+
+Detecting C OpenMP failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_26e82/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_26e82.dir/build.make CMakeFiles/cmTC_26e82.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building C object CMakeFiles/cmTC_26e82.dir/OpenMPTryFlag.c.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc   -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -fopenmp -v -o CMakeFiles/cmTC_26e82.dir/OpenMPTryFlag.c.o -c /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.c
+Using built-in specs.
+COLLECT_GCC=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-gcc
+Target: i686-sbr-linux
+Configured with: ../../../../../../work-shared/gcc-5.3.0-r0/gcc-5.3.0/configure --build=x86_64-linux --host=x86_64-naoqisdk-linux --target=i686-sbr-linux --prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --exec_prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --bindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --sbindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --libexecdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux --datadir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share --sysconfdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/etc --sharedstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/com --localstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/var --libdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux --includedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --oldincludedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --infodir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/info --mandir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=i686-sbr-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.3.0 --with-build-time-tools=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-linux/usr/i686-sbr-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/ald-atom --enable-targets=all --enable-poison-system-directories --with-mpfr=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-mpc=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --disable-static --enable-nls --enable-__cxa_atexit
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='--sysroot=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/' '-D' 'I_AM_A_ROBOT' '-pipe' '-D' 'I_AM_A_ROBOT' '-pipe' '-fomit-frame-pointer' '-finline-functions-called-once' '-finline-small-functions' '-falign-functions' '-falign-labels' '-falign-loops' '-falign-jumps' '-freorder-blocks' '-freorder-blocks-and-partition' '-freorder-functions' '-faggressive-loop-optimizations' '-ftree-vectorize' '-fpredictive-commoning' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_26e82.dir/OpenMPTryFlag.c.o' '-c' '-mtune=generic' '-march=pentiumpro' '-pthread'
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/cc1 -quiet -v -isysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -D_REENTRANT -D I_AM_A_ROBOT -D I_AM_A_ROBOT /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.c -quiet -dumpbase OpenMPTryFlag.c -mtune=generic -march=pentiumpro -auxbase-strip CMakeFiles/cmTC_26e82.dir/OpenMPTryFlag.c.o -version -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -fopenmp -o - |
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/as -v --32 -o CMakeFiles/cmTC_26e82.dir/OpenMPTryFlag.c.o
+GNU assembler version 2.26.0 (i686-sbr-linux) using BFD version (GNU Binutils) 2.26.0.20160226
+GNU C11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/lib/gcc/i686-sbr-linux/5.3.0/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/local/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/../../../../../i686-sbr-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include-fixed
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include
+End of search list.
+GNU C11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: ef27c9c905055da68007c994d2591395
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.c:2:17: fatal error: omp.h: No such file or directory
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_26e82.dir/build.make:78: CMakeFiles/cmTC_26e82.dir/OpenMPTryFlag.c.o] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_26e82/fast] Error 2
+
+
+
+Detecting CXX OpenMP failed with the following output:
+Change Dir: /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp
+
+Run Build Command(s):/usr/bin/gmake -f Makefile cmTC_13da1/fast && /usr/bin/gmake  -f CMakeFiles/cmTC_13da1.dir/build.make CMakeFiles/cmTC_13da1.dir/build
+gmake[1]: Entering directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+Building CXX object CMakeFiles/cmTC_13da1.dir/OpenMPTryFlag.cpp.o
+/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-g++   -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -DI_AM_A_ROBOT --sysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -pipe -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -std=gnu++11 -fPIC -fopenmp -v -o CMakeFiles/cmTC_13da1.dir/OpenMPTryFlag.cpp.o -c /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp
+Using built-in specs.
+COLLECT_GCC=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux/i686-sbr-linux-g++
+Target: i686-sbr-linux
+Configured with: ../../../../../../work-shared/gcc-5.3.0-r0/gcc-5.3.0/configure --build=x86_64-linux --host=x86_64-naoqisdk-linux --target=i686-sbr-linux --prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --exec_prefix=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr --bindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --sbindir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/bin/i686-sbr-linux --libexecdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux --datadir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share --sysconfdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/etc --sharedstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/com --localstatedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/var --libdir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux --includedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --oldincludedir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/include --infodir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/info --mandir=/opt/naoqi-os/sysroots/x86_64-naoqisdk-linux/usr/share/man --disable-silent-rules --disable-dependency-tracking --with-libtool-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-gnu-ld --enable-shared --enable-languages=c,c++ --enable-threads=posix --enable-multilib --enable-c99 --enable-long-long --enable-symvers=gnu --enable-libstdcxx-pch --program-prefix=i686-sbr-linux- --without-local-prefix --enable-lto --enable-libssp --enable-libitm --disable-bootstrap --disable-libmudflap --with-system-zlib --with-linker-hash-style=gnu --enable-linker-build-id --with-ppl=no --with-cloog=no --enable-checking=release --enable-cheaders=c_global --without-isl --with-gxx-include-dir=/not/exist/usr/include/c++/5.3.0 --with-build-time-tools=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-linux/usr/i686-sbr-linux/bin --with-sysroot=/not/exist --with-build-sysroot=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/ald-atom --enable-targets=all --enable-poison-system-directories --with-mpfr=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --with-mpc=/home/opennao/jenkins/workspace/yocto-rootfs/build/tmp/sysroots/x86_64-nativesdk-naoqisdk-linux --disable-static --enable-nls --enable-__cxa_atexit
+Thread model: posix
+gcc version 5.3.0 (GCC) 
+COLLECT_GCC_OPTIONS='--sysroot=/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/' '-D' 'I_AM_A_ROBOT' '-pipe' '-D' 'I_AM_A_ROBOT' '-pipe' '-fomit-frame-pointer' '-finline-functions-called-once' '-finline-small-functions' '-falign-functions' '-falign-labels' '-falign-loops' '-falign-jumps' '-freorder-blocks' '-freorder-blocks-and-partition' '-freorder-functions' '-faggressive-loop-optimizations' '-ftree-vectorize' '-fpredictive-commoning' '-std=gnu++11' '-fPIC' '-fopenmp' '-v' '-o' 'CMakeFiles/cmTC_13da1.dir/OpenMPTryFlag.cpp.o' '-c' '-shared-libgcc' '-mtune=generic' '-march=pentiumpro' '-pthread'
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/cc1plus -quiet -v -isysroot /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/ -D_GNU_SOURCE -D_REENTRANT -D I_AM_A_ROBOT -D I_AM_A_ROBOT /home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp -quiet -dumpbase OpenMPTryFlag.cpp -mtune=generic -march=pentiumpro -auxbase-strip CMakeFiles/cmTC_13da1.dir/OpenMPTryFlag.cpp.o -std=gnu++11 -version -fomit-frame-pointer -finline-functions-called-once -finline-small-functions -falign-functions -falign-labels -falign-loops -falign-jumps -freorder-blocks -freorder-blocks-and-partition -freorder-functions -faggressive-loop-optimizations -ftree-vectorize -fpredictive-commoning -fPIC -fopenmp -o - |
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/libexec/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/as -v --32 -o CMakeFiles/cmTC_13da1.dir/OpenMPTryFlag.cpp.o
+GNU assembler version 2.26.0 (i686-sbr-linux) using BFD version (GNU Binutils) 2.26.0.20160226
+GNU C++11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/lib/gcc/i686-sbr-linux/5.3.0/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/local/include"
+ignoring nonexistent directory "/home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/../../../../../i686-sbr-linux/include"
+#include "..." search starts here:
+#include <...> search starts here:
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include/c++/5.3.0
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include/c++/5.3.0/i686-sbr-linux
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include/c++/5.3.0/backward
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/sysroots/x86_64-naoqisdk-linux/usr/lib/i686-sbr-linux/gcc/i686-sbr-linux/5.3.0/include-fixed
+ /home/abrolhus/dev/rinobot/NAO/funcionaNoV6/sdk/ctc-linux64-atom-2.8.5.10/yocto-sdk/share/cmake/toolchain/linux64_cross_x86/../../../../sysroots/core2-32-sbr-linux/usr/include
+End of search list.
+GNU C++11 (GCC) version 5.3.0 (i686-sbr-linux)
+	compiled by GNU C version 5.3.0, GMP version 6.1.0, MPFR version 3.1.3, MPC version 1.0.3
+GGC heuristics: --param ggc-min-expand=100 --param ggc-min-heapsize=131072
+Compiler executable checksum: 58599425a9e498a9b2189cf21c7d4ae6
+/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/FindOpenMP/OpenMPTryFlag.cpp:2:17: fatal error: omp.h: No such file or directory
+compilation terminated.
+gmake[1]: *** [CMakeFiles/cmTC_13da1.dir/build.make:78: CMakeFiles/cmTC_13da1.dir/OpenMPTryFlag.cpp.o] Error 1
+gmake[1]: Leaving directory '/home/abrolhus/dev/rinobot/NAO/darknet/build-myconfig/CMakeFiles/CMakeTmp'
+gmake: *** [Makefile:127: cmTC_13da1/fast] Error 2
+
+
+
